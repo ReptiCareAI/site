@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Suggest a Shop | ReptiCareAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      padding: 40px;
+    }
+    h1 {
+      color: #00ffae;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background: #1e1e1e;
+      color: #fff;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      background: #00ffae;
+      color: #000;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Suggest a Reptile Shop</h1>
+  <form name="shop-suggestion" method="POST" data-netlify="true">
+    <label for="shop-name">Shop Name:</label>
+    <input type="text" id="shop-name" name="shop-name" required>
+
+    <label for="town">Town:</label>
+    <input type="text" id="town" name="town" required>
+
+    <label for="postcode">Postcode:</label>
+    <input type="text" id="postcode" name="postcode" required>
+
+    <label for="why">Why do you recommend them?</label>
+    <textarea id="why" name="why" rows="4"></textarea>
+
+    <button type="submit">Send Suggestion</button>
+  </form>
+</body>
+</html>
