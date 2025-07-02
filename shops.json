@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Snakes 'n' Adders",
+    "town": "Sheffield",
+    "postcode": "S1 2HH",
+    "rating": 4.8,
+    "lat": 53.3811,
+    "lon": -1.4701
+  },
+  {
+    "name": "The Reptile Shop",
+    "town": "Leeds",
+    "postcode": "LS1 3AA",
+    "rating": 4.6,
+    "lat": 53.8008,
+    "lon": -1.5491
+  },
+  {
+    "name": "Exotic Emporium",
+    "town": "Manchester",
+    "postcode": "M1 1AE",
+    "rating": 4.9,
+    "lat": 53.4808,
+    "lon": -2.2426
+  },
+  {
+    "name": "Reptasia",
+    "town": "London",
+    "postcode": "E1 6AN",
+    "rating": 4.7,
+    "lat": 51.5194,
+    "lon": -0.0755
+  },
+  {
+    "name": "Scales & Fangs",
+    "town": "Birmingham",
+    "postcode": "B1 1BB",
+    "rating": 4.5,
+    "lat": 52.4797,
+    "lon": -1.9027
+  },
+  {
+    "name": "Cold Blooded Pets",
+    "town": "Bristol",
+    "postcode": "BS1 2AW",
+    "rating": 4.4,
+    "lat": 51.4545,
+    "lon": -2.5879
+  },
+  {
+    "name": "Creepy Critters",
+    "town": "Nottingham",
+    "postcode": "NG1 5FS",
+    "rating": 4.6,
+    "lat": 52.9548,
+    "lon": -1.1581
+  },
+  {
+    "name": "Reptile Jungle",
+    "town": "Leicester",
+    "postcode": "LE1 3GS",
+    "rating": 4.7,
+    "lat": 52.6369,
+    "lon": -1.1398
+  },
+  {
+    "name": "Terrarium Treasures",
+    "town": "Glasgow",
+    "postcode": "G1 2BP",
+    "rating": 4.5,
+    "lat": 55.8642,
+    "lon": -4.2518
+  },
+  {
+    "name": "Exotic World",
+    "town": "Edinburgh",
+    "postcode": "EH1 1AD",
+    "rating": 4.8,
+    "lat": 55.9533,
+    "lon": -3.1883
+  }
+]

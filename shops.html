@@ -65,14 +65,13 @@
     </main>
 
     <script>
-        const shops = [
-            { name: "Snakes 'n' Adders", town: "Sheffield", postcode: "S1 2HH", rating: 4.8, link: "https://maps.google.com/?q=Snakes 'n' Adders Sheffield" },
-            { name: "The Reptile Shop", town: "Leeds", postcode: "LS1 3AA", rating: 4.6, link: "https://maps.google.com/?q=The Reptile Shop Leeds" },
-            { name: "Exotic Emporium", town: "Manchester", postcode: "M1 1AE", rating: 4.9, link: "https://maps.google.com/?q=Exotic Emporium Manchester" },
-            { name: "Reptasia", town: "London", postcode: "E1 6AN", rating: 4.7, link: "https://maps.google.com/?q=Reptasia London" },
-            { name: "Scales & Fangs", town: "Birmingham", postcode: "B1 1BB", rating: 4.5, link: "https://maps.google.com/?q=Scales & Fangs Birmingham" },
-            { name: "Cold Blooded Pets", town: "Bristol", postcode: "BS1 2AW", rating: 4.4, link: "https://maps.google.com/?q=Cold Blooded Pets Bristol" }
-        ];
+        let shops = [];
+
+        fetch('shops.json')
+            .then(response => response.json())
+            .then(data => {
+                shops = data;
+            });
 
         function filterShops() {
             const input = document.getElementById('searchInput').value.toLowerCase();
@@ -97,7 +96,7 @@
                     <h3>${shop.name}</h3>
                     <p>${shop.town} (${shop.postcode})</p>
                     <p>⭐ Rating: ${shop.rating}</p>
-                    <p><a href="${shop.link}" target="_blank">View on map</a></p>
+                    <p><a href="https://maps.google.com/?q=${encodeURIComponent(shop.name + ' ' + shop.town)}" target="_blank">View on map</a></p>
                 `;
                 results.appendChild(shopCard);
             });
