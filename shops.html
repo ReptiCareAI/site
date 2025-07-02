@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find a Reptile Shop Near You | ReptiCareAI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #121212;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #1e1e1e;
+        }
+        header h1 {
+            color: #00ffae;
+            margin-bottom: 10px;
+        }
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #222;
+            color: #fff;
+        }
+        .shop {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .shop h3 {
+            margin: 0;
+            color: #00ffae;
+        }
+        .shop a {
+            color: #00bfff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Reptile Shop Finder</h1>
+        <p>Find top-rated reptile shops near you in the UK</p>
+    </header>
+    <main>
+        <input type="text" id="searchInput" placeholder="Enter town or postcode..." onkeyup="filterShops()">
+        <div id="results"></div>
+    </main>
+
+    <script>
+        const shops = [
+            { name: "Snakes 'n' Adders", town: "Sheffield", postcode: "S1 2HH", rating: 4.8, link: "https://maps.google.com/?q=Snakes 'n' Adders Sheffield" },
+            { name: "The Reptile Shop", town: "Leeds", postcode: "LS1 3AA", rating: 4.6, link: "https://maps.google.com/?q=The Reptile Shop Leeds" },
+            { name: "Exotic Emporium", town: "Manchester", postcode: "M1 1AE", rating: 4.9, link: "https://maps.google.com/?q=Exotic Emporium Manchester" },
+            { name: "Reptasia", town: "London", postcode: "E1 6AN", rating: 4.7, link: "https://maps.google.com/?q=Reptasia London" },
+            { name: "Scales & Fangs", town: "Birmingham", postcode: "B1 1BB", rating: 4.5, link: "https://maps.google.com/?q=Scales & Fangs Birmingham" },
+            { name: "Cold Blooded Pets", town: "Bristol", postcode: "BS1 2AW", rating: 4.4, link: "https://maps.google.com/?q=Cold Blooded Pets Bristol" }
+        ];
+
+        function filterShops() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const results = document.getElementById('results');
+            results.innerHTML = '';
+
+            const filtered = shops.filter(shop =>
+                shop.town.toLowerCase().includes(input) || shop.postcode.toLowerCase().includes(input)
+            );
+
+            const top3 = filtered.slice(0, 3);
+
+            if (top3.length === 0) {
+                results.innerHTML = "<p>No shops found in that area.</p>";
+                return;
+            }
+
+            top3.forEach(shop => {
+                const shopCard = document.createElement('div');
+                shopCard.className = 'shop';
+                shopCard.innerHTML = `
+                    <h3>${shop.name}</h3>
+                    <p>${shop.town} (${shop.postcode})</p>
+                    <p>⭐ Rating: ${shop.rating}</p>
+                    <p><a href="${shop.link}" target="_blank">View on map</a></p>
+                `;
+                results.appendChild(shopCard);
+            });
+        }
+    </script>
+</body>
+</html>
