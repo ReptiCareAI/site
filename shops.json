@@ -30,15 +30,7 @@
   {"name":"Scales & Tails","town":"Hull","postcode":"HU3 2RA","rating":4.3,"lat":53.7430,"lon":-0.3310,"website":"https://www.scalesandtails.co.uk"},
   {"name":"Sci‑Therm Reptile Shop","town":"Nottingham","postcode":"NG6 8UJ","rating":4.2,"lat":52.9870,"lon":-1.1950,"website":"https://www.scitherm.co.uk"},
   {"name":"Reptile Rescue & Rescue UK","town":"Edinburgh","postcode":"EH12 8TS","rating":4.5,"lat":55.9470,"lon":-3.3300,"website":"https://www.reptilerescue.org.uk"},
-    {
-  "name": "Snakes N Adders",
-  "town": "Sheffield",
-  "postcode": "S2 4QU",
-  "rating": 4.8,
-  "lat": 53.3729,
-  "lon": -1.4634,
-  "website": "https://www.snakesnadders.co.uk"
-},
+  {"name": "Snakes N Adders","town": "Sheffield","postcode": "S2 4QU","rating": 4.8,"lat": 53.3729,"lon": -1.4634,"website": "https://www.snakesnadders.co.uk"},
 {
   "name": "The Lizard Lounge",
   "town": "Sheffield",
