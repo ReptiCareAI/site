@@ -1,240 +1,231 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>ReptiCareAI - Smarter Reptile Care</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-<style>
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #121212;
-    color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-  }
+  <meta charset="UTF-8">
+  <title>ReptiCareAI - Smarter Reptile Care</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-  header {
-    background-color: #1e1e1e;
-    padding: 20px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
 
-  .logo-title {
-    display: flex;
-    align-items: center;
-  }
+    header {
+      background-color: #1e1e1e;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
 
-  .logo-title img {
-    height: 45px;
-    margin-right: 15px;
-  }
-    
-    footer {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
-  text-align: center;
-  padding: 20px 10px;
-  margin-top: 40px;
-  font-size: 14px;
-  border-top: 1px solid #333;
-}
+    .logo-title {
+      display: flex;
+      align-items: center;
+    }
 
-footer a {
-  color: #00bfff;
-  text-decoration: none;
-}
+    .logo-title img {
+      height: 45px;
+      margin-right: 15px;
+    }
+
+    .logo-title h1 {
+      color: #00ffae;
+      font-size: 24px;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin: 5px 15px;
+      font-size: 16px;
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        margin-top: 0;
+      }
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px;
+    }
 
     .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-between;
-  margin-top: 30px;
-}
-
-.card {
-  flex: 1 1 calc(33% - 20px);
-  background-color: #1e1e1e;
-  border: 1px solid #333;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
-  min-width: 250px;
-  max-width: 100%;
-}
-
-.card h3 {
-  margin-top: 0;
-  color: #00ffae;
-}
-
-.card a {
-  color: #00bfff;
-  text-decoration: none;
-}
-
-  .logo-title h1 {
-    color: #00ffae;
-    font-size: 24px;
-    margin: 0;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-  nav a {
-    color: #f0f0f0;
-    text-decoration: none;
-    margin: 5px 15px;
-    font-size: 16px;
-  }
-
-  @media (min-width: 768px) {
-    nav {
-      margin-top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      margin-top: 30px;
     }
-  }
 
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 30px;
-  }
+    .card {
+      flex: 1 1 calc(33% - 20px);
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      min-width: 250px;
+      max-width: 100%;
+      transition: all 0.2s ease;
+    }
 
-  input[type="text"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #222;
-    color: #fff;
-  }
+    .card:hover {
+      box-shadow: 0 0 15px rgba(0, 255, 174, 0.3);
+      transform: scale(1.02);
+    }
 
-  .shop {
-    background-color: #1e1e1e;
-    border: 1px solid #333;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-  }
+    .card h3 {
+      margin-top: 0;
+      color: #00ffae;
+    }
 
-  .shop h3 {
-    margin: 0;
-    color: #00ffae;
-  }
+    .card a {
+      color: #00bfff;
+      text-decoration: none;
+    }
 
-  .shop a {
-    color: #00bfff;
-    text-decoration: none;
-  }
-    
-    
-</style>
+    .section-title {
+      margin-top: 50px;
+      font-size: 24px;
+      color: #00ffae;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+    }
 
-<!-- Social preview -->
-<meta property="og:title" content="ReptiCareAI">
-   <meta property="og:description" content="Cut through the confusion. Intelligent reptile care powered by real-world experience and AI.">
-<meta property="og:image" content="https://repticareai.com/social-card.png">
-<meta property="og:url" content="https://repticareai.com">
-<meta property="og:type" content="website">
+    .soon-tag {
+      font-size: 12px;
+      color: #ffcc00;
+      background-color: #333;
+      padding: 2px 6px;
+      border-radius: 5px;
+      margin-left: 8px;
+    }
 
-<!-- Twitter (X) preview -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ReptiCareAI">
-<meta name="twitter:description" content="Smarter Reptile Care, Powered by AI. Built on real-world experience to cut through the noise.">
-<meta name="twitter:image" content="https://repticareai.com/social-card.png">
+    @media (max-width: 600px) {
+      .card {
+        flex: 1 1 100%;
+      }
+    }
 
+    footer {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 40px;
+      font-size: 14px;
+      border-top: 1px solid #333;
+    }
+
+    footer a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+  </style>
+
+  <!-- Social preview -->
+  <meta property="og:title" content="ReptiCareAI">
+  <meta property="og:description" content="Cut through the confusion. Intelligent reptile care powered by real-world experience and AI.">
+  <meta property="og:image" content="https://repticareai.com/social-card.png">
+  <meta property="og:url" content="https://repticareai.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter (X) preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ReptiCareAI">
+  <meta name="twitter:description" content="Smarter Reptile Care, Powered by AI. Built on real-world experience to cut through the noise.">
+  <meta name="twitter:image" content="https://repticareai.com/social-card.png">
 </head>
+
 <body>
-<header>
-  <div class="logo-title">
-    <img src="logo-symbolic.webp" alt="ReptiCareAI snake eye logo" style="height: 45px;">
-    <h1>ReptiCareAI</h1>
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="shops.html">Find Shops</a>
-    <a href="suggest.html">Suggest a Shop</a>
-  </nav>
-</header>
+  <header>
+    <div class="logo-title">
+      <img src="logo-symbolic.webp" alt="ReptiCareAI snake eye logo">
+      <h1>ReptiCareAI</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shops.html">Find Shops</a>
+      <a href="suggest.html">Suggest a Shop</a>
+    </nav>
+  </header>
 
-    <main>
-<p>Welcome to ReptiCareAI — your trusted source for intelligent, personalised reptile care. Built on real-world experience, our tools bring clarity to reptile keeping by cutting through the confusion and conflicting advice found online.</p>
+  <main>
+    <p>Welcome to ReptiCareAI — your trusted source for intelligent, personalised reptile care. Built on real-world experience, our tools bring clarity to reptile keeping by cutting through the confusion and conflicting advice found online.</p>
 
-<div class="card-container">
-  <div class="card">
-    <h3>🦎 Feeding Planner</h3>
-    <p>Coming Soon</p>
-  </div>
-  <div class="card">
-    <h3>📍 Shop Finder</h3>
-    <a href="shops.html">Find a Reptile Shop</a>
-  </div>
-  <div class="card">
-    <h3>🛠️ Enclosure Setup Tool</h3>
-    <p>Coming Soon</p>
-  </div>
-</div>
+    <div class="card-container">
+      <div class="card">
+        <h3>📍 Shop Finder</h3>
+        <a href="shops.html">Find a Reptile Shop</a>
+      </div>
+    </div>
 
-<h2>🔮 What's Coming to ReptiCareAI</h2>
+    <h2 class="section-title">🔮 What’s Coming to ReptiCareAI</h2>
 
-<div class="card-container">
-  <div class="card">
-    <h3>🧠 Feeding Planner</h3>
-    <p>Coming Soon – Personalised feeding schedules by species & morph.</p>
-  </div>
-  <div class="card">
-    <h3>⭐ Shop Spotlight</h3>
-    <p>Coming Soon – Monthly focus on outstanding reptile retailers.</p>
-  </div>
-  <div class="card">
-    <h3>🦎 Species Spotlight</h3>
-    <p>Coming Soon – Care guides grounded in expert experience, not forums.</p>
-  </div>
-  <div class="card">
-    <h3>🧬 Morph Projector</h3>
-    <p>Coming Soon – Predict baby morphs from breeding pairs.</p>
-  </div>
-  <div class="card">
-    <h3>🗞 Blog & Articles</h3>
-    <p>Coming Soon – Advice, guides, and AI-powered reptile insights.</p>
-  </div>
-  <div class="card">
-    <h3>📊 Data Dashboard</h3>
-    <p>Coming Soon – Track growth, feeding, humidity & health patterns.</p>
-  </div>
-  <div class="card">
-    <h3>💰 Premium Tools</h3>
-    <p>Coming Soon – Unlock deeper insights & power features.</p>
-  </div>
-</div>
+    <div class="card-container">
+      <div class="card">
+        <h3>🧠 Feeding Planner <span class="soon-tag">COMING SOON</span></h3>
+        <p>Personalised feeding schedules tailored to species, age, and morph.</p>
+      </div>
+      <div class="card">
+        <h3>⭐ Shop Spotlight <span class="soon-tag">COMING SOON</span></h3>
+        <p>Monthly showcase of the UK’s best and most trusted reptile retailers.</p>
+      </div>
+      <div class="card">
+        <h3>🛠️ Enclosure Setup Tool <span class="soon-tag">COMING SOON</span></h3>
+        <p>Clear, experience-backed guides to help you build the perfect habitat.</p>
+      </div>
+      <div class="card">
+        <h3>🦎 Species Spotlight <span class="soon-tag">COMING SOON</span></h3>
+        <p>No fluff — just real-world care advice for popular and rare species alike.</p>
+      </div>
+      <div class="card">
+        <h3>🧬 Morph Projector <span class="soon-tag">COMING SOON</span></h3>
+        <p>Predict hatchling outcomes based on parent morph pairings.</p>
+      </div>
+      <div class="card">
+        <h3>🗞 Blog & Articles <span class="soon-tag">COMING SOON</span></h3>
+        <p>Insightful posts and AI-powered guidance on care, tech and trends.</p>
+      </div>
+      <div class="card">
+        <h3>📊 Data Dashboard <span class="soon-tag">COMING SOON</span></h3>
+        <p>Track and compare feeding, health trends, and growth across the community.</p>
+      </div>
+      <div class="card">
+        <h3>💰 Premium Tools <span class="soon-tag">COMING SOON</span></h3>
+        <p>Unlock advanced features, deeper data analysis, and exclusive care insights.</p>
+      </div>
+    </div>
+  </main>
 
-
-    </main>
-<footer>
-  <p style="margin-bottom: 10px;">
-    ReptiCareAI is here to cut through the noise and provide intelligent, experience-backed guidance for modern reptile keepers.
-  </p>
-
-  <div style="margin: 10px 0;">
-    <a href="https://www.tiktok.com/@repti_care_ai" target="_blank" style="margin: 0 10px;">🐍 TikTok</a>
-    <a href="https://www.instagram.com/repticareai" target="_blank" style="margin: 0 10px;">📸 Instagram</a>
-    <a href="https://www.youtube.com/@Repti-Care-AI" target="_blank" style="margin: 0 10px;">▶️ YouTube</a>
-  </div>
-
-  <p>Contact us at <a href="mailto:repticareai@gmail.com">repticareai@gmail.com</a><br>
-  &copy; 2025 ReptiCareAI</p>
-</footer>
+  <footer>
+    <p style="margin-bottom: 10px;">
+      ReptiCareAI is here to cut through the noise and provide intelligent, experience-backed guidance for modern reptile keepers.
+    </p>
+    <div style="margin: 10px 0;">
+      <a href="https://www.tiktok.com/@repti_care_ai" target="_blank" style="margin: 0 10px;">🐍 TikTok</a>
+      <a href="https://www.instagram.com/repticareai" target="_blank" style="margin: 0 10px;">📸 Instagram</a>
+      <a href="https://www.youtube.com/@Repti-Care-AI" target="_blank" style="margin: 0 10px;">▶️ YouTube</a>
+    </div>
+    <p>Contact us at <a href="mailto:repticareai@gmail.com">repticareai@gmail.com</a><br>
+    &copy; 2025 ReptiCareAI</p>
+  </footer>
 </body>
 </html>
