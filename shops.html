@@ -1,161 +1,98 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ReptiCareAI - Reptile Shop Locator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find a Reptile Shop - ReptiCareAI</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #121212;
       color: #f0f0f0;
       margin: 0;
-      padding: 0;
-    }
-
-    header, footer {
-      background-color: #1e1e1e;
       padding: 20px;
-      text-align: center;
     }
-
     h1 {
-      margin: 0;
       color: #00ffae;
     }
-
-    main {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      background-color: #222;
-      border: none;
-      color: #fff;
-      border-radius: 6px;
+    input, select {
+      padding: 10px;
       font-size: 16px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #222;
+      color: #fff;
+      width: 100%;
+      max-width: 400px;
     }
-
     .shop {
-      background: #1e1e1e;
+      background-color: #1e1e1e;
       border: 1px solid #333;
       padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 15px;
+      border-radius: 10px;
+      margin: 10px 0;
     }
-
     .shop h3 {
+      margin: 0 0 10px;
       color: #00ffae;
-      margin: 0 0 5px;
     }
-
     .shop a {
       color: #00bfff;
       text-decoration: none;
     }
-
-    #results p {
-      margin-top: 0;
-    }
   </style>
 </head>
 <body>
+  <h1>🔍 Find a Reptile Shop</h1>
+  <p>Enter a town or postcode, or filter by region:</p>
+  <input type="text" id="searchBox" placeholder="Enter town or postcode...">
+  <select id="regionFilter">
+    <option value="">All Regions</option>
+    <option value="London">London</option>
+    <option value="South East">South East</option>
+    <option value="South West">South West</option>
+    <option value="East Midlands">East Midlands</option>
+    <option value="West Midlands">West Midlands</option>
+    <option value="North West">North West</option>
+    <option value="North East">North East</option>
+    <option value="Yorkshire & Humber">Yorkshire & Humber</option>
+    <option value="Scotland">Scotland</option>
+    <option value="Wales">Wales</option>
+  </select>
 
-<header>
-  <h1>🦎 Reptile Shop Finder</h1>
-</header>
+  <div id="results"></div>
 
-<main>
-  <p>Enter a full UK postcode or town name to find reptile shops near you:</p>
-  <input type="text" id="search" placeholder="e.g. S73 8DJ or Barnsley" oninput="filterShops()" />
+  <script>
+    const shops = [{"name": "Crystal Palace Reptiles", "town": "London", "postcode": "SE19 3AF", "rating": 4.8, "lat": 51.4231, "lon": -0.0865, "website": "https://www.crystalpalacereptiles.com", "region": "London"}, {"name": "Jungle Reptiles", "town": "Bracknell", "postcode": "RG42 6EJ", "rating": 5.0, "lat": 51.417, "lon": -0.7582, "website": "https://www.junglereptiles.uk", "region": "South East"}, {"name": "Slitherin Reptiles", "town": "Leicester", "postcode": "LE1 4SA", "rating": 4.7, "lat": 52.6369, "lon": -1.1398, "website": "https://www.slitherinreptiles.com", "region": "East Midlands"}, {"name": "Internet Reptile", "town": "Nottingham", "postcode": "NG7 7FN", "rating": 4.6, "lat": 52.9548, "lon": -1.1581, "website": "https://www.internetreptile.com", "region": "East Midlands"}, {"name": "Blackpool Reptiles & Aquatics", "town": "Blackpool", "postcode": "FY1 6ES", "rating": 4.7, "lat": 53.8142, "lon": -3.0501, "website": "https://www.blackpoolreptiles.co.uk", "region": "Other"}, {"name": "Reptile Cymru", "town": "Cardiff", "postcode": "CF11 6RL", "rating": 4.6, "lat": 51.477, "lon": -3.173, "website": "https://www.reptilecymru.co.uk", "region": "Wales"}, {"name": "Dearne Valley Pets", "town": "Wombwell, Barnsley", "postcode": "S73 8DJ", "rating": 4.9, "lat": 53.523, "lon": -1.3901, "website": "", "region": "Other"}, {"name": "Northampton Reptile Centre", "town": "Northampton", "postcode": "NN5 5DA", "rating": 4.7, "lat": 52.2538, "lon": -0.8777, "website": "https://www.reptilecentre.com", "region": "Other"}, {"name": "Pro-Rep", "town": "Ongar, Essex", "postcode": "CM5 0EN", "rating": 4.4, "lat": 51.731, "lon": 0.26, "website": "https://www.pro-rep.co.uk", "region": "Other"}, {"name": "Natures Grub", "town": "Fakenham, Norfolk", "postcode": "NR21 8HW", "rating": 4.5, "lat": 52.82, "lon": 0.833, "website": "https://www.naturesgrub.co.uk", "region": "Other"}, {"name": "Snakes N Adders", "town": "Sheffield", "postcode": "S3 8UL", "rating": 4.9, "lat": 53.3889, "lon": -1.4719, "website": "https://www.snakesnadders.com", "region": "Yorkshire & Humber"}, {"name": "The Lizard Lounge", "town": "Sheffield", "postcode": "S10 1EW", "rating": 4.7, "lat": 53.3772, "lon": -1.5014, "website": "", "region": "Yorkshire & Humber"}, {"name": "Tanked", "town": "Barnsley", "postcode": "S70 1TH", "rating": 4.6, "lat": 53.5526, "lon": -1.4797, "website": "", "region": "Yorkshire & Humber"}, {"name": "Aqua Inn", "town": "Barnsley", "postcode": "S70 4LU", "rating": 4.4, "lat": 53.5295, "lon": -1.4583, "website": "", "region": "Yorkshire & Humber"}, {"name": "MMA Reptiles", "town": "Liverpool", "postcode": "L9 7BN", "rating": 4.5, "lat": 53.465, "lon": -2.9647, "website": "", "region": "North West"}, {"name": "Peculiar Pets", "town": "Hucknall", "postcode": "NG15 7SZ", "rating": 4.6, "lat": 53.033, "lon": -1.199, "website": "", "region": "East Midlands"}, {"name": "Urban Exotics", "town": "Kirkby in Ashfield", "postcode": "NG17 7LF", "rating": 4.7, "lat": 53.1003, "lon": -1.2627, "website": "https://www.urbanexotics.co.uk", "region": "Other"}];
 
-  <div id="results">Loading shops...</div>
-</main>
+    function filterShops() {
+      const query = document.getElementById('searchBox').value.toLowerCase();
+      const region = document.getElementById('regionFilter').value;
 
-<footer>
-  <p>&copy; 2025 ReptiCareAI</p>
-</footer>
-
-<script>
-  let shops = [];
-
-  async function fetchShops() {
-    const res = await fetch('shops.json');
-    shops = await res.json();
-    displayShops(shops);
-  }
-
-  function displayShops(filtered) {
-    const container = document.getElementById('results');
-    if (filtered.length === 0) {
-      container.innerHTML = "<p>No shops found.</p>";
-      return;
-    }
-    container.innerHTML = filtered.map(shop => `
-      <div class="shop">
-        <h3>${shop.name}</h3>
-        <p><strong>Town:</strong> ${shop.town}</p>
-        <p><strong>Postcode:</strong> ${shop.postcode}</p>
-        <p><strong>Rating:</strong> ${shop.rating}</p>
-        ${shop.website ? `<p><a href="${shop.website}" target="_blank">Visit Website</a></p>` : ''}
-      </div>
-    `).join('');
-  }
-
-  function filterShops() {
-    const input = document.getElementById('search').value.trim().toLowerCase();
-    if (!input) return displayShops(shops);
-
-    const postcodeRegex = /^[A-Z]{1,2}[0-9][0-9A-Z]?\s?[0-9][A-Z]{2}$/i;
-
-    // If it's likely a postcode (6+ chars and matches pattern), use radius
-    if (input.length > 5 && postcodeRegex.test(input)) {
-      getLatLonFromPostcode(input).then(coords => {
-        if (!coords) return displayShops([]);
-        const nearby = shops.filter(shop => {
-          const d = haversineDistance(coords.lat, coords.lon, shop.lat, shop.lon);
-          return d <= 25;
-        });
-        displayShops(nearby);
+      const filtered = shops.filter(shop => {
+        const matchRegion = !region || (shop.region === region);
+        const matchSearch = !query || shop.town.toLowerCase().includes(query) || shop.postcode.toLowerCase().includes(query);
+        return matchRegion && matchSearch;
       });
-    } else {
-      // fallback to town name filtering
-      const townFiltered = shops.filter(shop =>
-        shop.town.toLowerCase().includes(input)
-      );
-      displayShops(townFiltered);
+
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = filtered.map(shop => `
+        <div class="shop">
+          <h3>${shop.name}</h3>
+          <p>${shop.town} (${shop.postcode})<br>
+          Rating: ${shop.rating} ⭐<br>
+          ${shop.website ? `<a href="${shop.website}" target="_blank">Visit Website</a> | ` : ''}
+          <a href="https://www.google.com/maps/search/?api=1&query=${shop.lat},${shop.lon}" target="_blank">View on Map</a></p>
+        </div>
+      `).join('') || '<p>No shops found.</p>';
     }
-  }
 
-  async function getLatLonFromPostcode(postcode) {
-    try {
-      const res = await fetch(`https://api.postcodes.io/postcodes/${encodeURIComponent(postcode)}`);
-      const data = await res.json();
-      if (!data.result) return null;
-      return { lat: data.result.latitude, lon: data.result.longitude };
-    } catch {
-      return null;
-    }
-  }
+    document.getElementById('searchBox').addEventListener('input', filterShops);
+    document.getElementById('regionFilter').addEventListener('change', filterShops);
 
-  function haversineDistance(lat1, lon1, lat2, lon2) {
-    const toRad = angle => angle * Math.PI / 180;
-    const R = 3958.8; // miles
-    const dLat = toRad(lat2 - lat1);
-    const dLon = toRad(lon2 - lon1);
-    const a = Math.sin(dLat/2)**2 +
-              Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-              Math.sin(dLon/2)**2;
-    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-  }
-
-  fetchShops();
-</script>
-
+    filterShops();
+  </script>
 </body>
 </html>
