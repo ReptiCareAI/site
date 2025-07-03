@@ -3,90 +3,80 @@
     "name": "Crystal Palace Reptiles",
     "town": "London",
     "postcode": "SE19 3AF",
-    "lat": 51.4231,
-    "lon": -0.0865,
+    "rating": 4.8,
     "website": "https://www.crystalpalacereptiles.com",
-    "region": "London"
+    "map": "https://www.google.com/maps/search/Crystal+Palace+Reptiles+SE19+3AF"
   },
   {
     "name": "Jungle Reptiles",
     "town": "Bracknell",
     "postcode": "RG42 6EJ",
-    "lat": 51.4130,
-    "lon": -0.7580,
+    "rating": 5.0,
     "website": "https://www.junglereptiles.uk",
-    "region": "South East"
+    "map": "https://www.google.com/maps/search/Jungle+Reptiles+RG42+6EJ"
   },
   {
     "name": "Slitherin Reptiles",
     "town": "Leicester",
     "postcode": "LE1 4SA",
-    "lat": 52.6369,
-    "lon": -1.1398,
+    "rating": 4.7,
     "website": "https://www.slitherinreptiles.com",
-    "region": "East Midlands"
+    "map": "https://www.google.com/maps/search/Slitherin+Reptiles+LE1+4SA"
   },
   {
     "name": "Internet Reptile",
     "town": "Nottingham",
-    "postcode": "NG4 2SR",
-    "lat": 52.9410,
-    "lon": -1.1580,
+    "postcode": "NG7 7FN",
+    "rating": 4.6,
     "website": "https://www.internetreptile.com",
-    "region": "East Midlands"
+    "map": "https://www.google.com/maps/search/Internet+Reptile+NG7+7FN"
   },
   {
     "name": "Blackpool Reptiles & Aquatics",
     "town": "Blackpool",
     "postcode": "FY1 6ES",
-    "lat": 53.8120,
-    "lon": -3.0500,
+    "rating": 4.7,
     "website": "https://www.blackpoolreptiles.co.uk",
-    "region": "North West"
+    "map": "https://www.google.com/maps/search/Blackpool+Reptiles+FY1+6ES"
   },
   {
     "name": "Reptile Cymru",
     "town": "Cardiff",
-    "postcode": "CF5 1JG",
-    "lat": 51.4823,
-    "lon": -3.2091,
+    "postcode": "CF11 6RL",
+    "rating": 4.6,
     "website": "https://www.reptilecymru.co.uk",
-    "region": "Wales"
+    "map": "https://www.google.com/maps/search/Reptile+Cymru+CF11+6RL"
   },
   {
-    "name": "Dearne Valley Pet Centre",
+    "name": "Dearne Valley Pets",
     "town": "Wombwell, Barnsley",
-    "postcode": "S73 8UE",
-    "lat": 53.5230,
-    "lon": -1.3901,
+    "postcode": "S73 8DJ",
+    "rating": 4.9,
     "website": "https://www.dearnevalleypetcentre.com",
-    "region": "Yorkshire & The Humber"
+    "map": "https://www.google.com/maps/search/Dearne+Valley+Pets+S73+8DJ"
   },
   {
     "name": "Northampton Reptile Centre",
     "town": "Northampton",
     "postcode": "NN5 5DA",
-    "lat": 52.2538,
-    "lon": -0.8777,
+    "rating": 4.7,
     "website": "https://www.reptilecentre.com",
-    "region": "East Midlands"
+    "map": "https://www.google.com/maps/search/Northampton+Reptile+Centre+NN5+5DA"
   },
   {
-    "name": "Pro‑Rep",
+    "name": "Pro-Rep",
     "town": "Ongar, Essex",
     "postcode": "CM5 0EN",
-    "lat": 51.7310,
-    "lon": 0.2600,
+    "rating": 4.4,
     "website": "https://www.pro-rep.co.uk",
-    "region": "East of England"
+    "map": "https://www.google.com/maps/search/Pro-Rep+CM5+0EN"
   },
   {
     "name": "Natures Grub",
     "town": "Fakenham, Norfolk",
     "postcode": "NR21 8HW",
-    "lat": 52.8200,
-    "lon": 0.8330,
+    "rating": 4.5,
     "website": "https://www.naturesgrub.co.uk",
-    "region": "East of England"
+    "map": "https://www.google.com/maps/search/Natures+Grub+NR21+8HW"
   }
 ]
