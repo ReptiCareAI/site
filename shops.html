@@ -38,6 +38,7 @@
       border: none;
       color: #fff;
       border-radius: 6px;
+      font-size: 16px;
     }
 
     .shop {
@@ -56,6 +57,10 @@
     .shop a {
       color: #00bfff;
       text-decoration: none;
+    }
+
+    #results p {
+      margin-top: 0;
     }
   </style>
 </head>
@@ -106,8 +111,9 @@
     const input = document.getElementById('search').value.trim().toLowerCase();
     if (!input) return displayShops(shops);
 
-    // Check if input is a postcode
     const postcodeRegex = /^[A-Z]{1,2}[0-9][0-9A-Z]?\s?[0-9][A-Z]{2}$/i;
+
+    // If it's likely a postcode (6+ chars and matches pattern), use radius
     if (input.length > 5 && postcodeRegex.test(input)) {
       getLatLonFromPostcode(input).then(coords => {
         if (!coords) return displayShops([]);
@@ -118,6 +124,7 @@
         displayShops(nearby);
       });
     } else {
+      // fallback to town name filtering
       const townFiltered = shops.filter(shop =>
         shop.town.toLowerCase().includes(input)
       );
