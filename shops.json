@@ -1,7 +1,7 @@
 [
   {
     "name": "Crystal Palace Reptiles",
-    "town": "London (Upper Norwood)",
+    "town": "London",
     "postcode": "SE19 3AF",
     "lat": 51.4231,
     "lon": -0.0865,
@@ -10,7 +10,7 @@
   },
   {
     "name": "Jungle Reptiles",
-    "town": "Bracknell (Moss End Garden Village)",
+    "town": "Bracknell",
     "postcode": "RG42 6EJ",
     "lat": 51.4130,
     "lon": -0.7580,
@@ -28,7 +28,7 @@
   },
   {
     "name": "Internet Reptile",
-    "town": "Nottingham (Quayside Court)",
+    "town": "Nottingham",
     "postcode": "NG4 2SR",
     "lat": 52.9410,
     "lon": -1.1580,
@@ -46,7 +46,7 @@
   },
   {
     "name": "Reptile Cymru",
-    "town": "Cardiff (Canton)",
+    "town": "Cardiff",
     "postcode": "CF5 1JG",
     "lat": 51.4823,
     "lon": -3.2091,
@@ -54,12 +54,12 @@
     "region": "Wales"
   },
   {
-    "name": "Dearne Valley Pets",
+    "name": "Dearne Valley Pet Centre",
     "town": "Wombwell, Barnsley",
     "postcode": "S73 8UE",
     "lat": 53.5230,
     "lon": -1.3901,
-    "website": "https://www.dearnevalleypetcentre.com/",
+    "website": "https://www.dearnevalleypetcentre.com",
     "region": "Yorkshire & The Humber"
   },
   {
