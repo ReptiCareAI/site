@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +14,10 @@
     }
     h1 {
       color: #00ffae;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 20px;
     }
     input, select {
       padding: 10px;
@@ -26,13 +29,14 @@
       color: #fff;
       width: 100%;
       max-width: 400px;
+      display: block;
     }
     .shop {
       background-color: #1e1e1e;
       border: 1px solid #333;
       padding: 15px;
       border-radius: 10px;
-      margin: 10px 0;
+      margin: 15px 0;
     }
     .shop h3 {
       margin: 0 0 10px;
@@ -41,6 +45,9 @@
     .shop a {
       color: #00bfff;
       text-decoration: none;
+    }
+    .shop a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -60,39 +67,59 @@
     <option value="Yorkshire & Humber">Yorkshire & Humber</option>
     <option value="Scotland">Scotland</option>
     <option value="Wales">Wales</option>
+    <option value="Other">Other</option>
   </select>
 
-  <div id="results"></div>
+  <div id="results"><p>Loading shops...</p></div>
 
   <script>
-    const shops = [{"name": "Crystal Palace Reptiles", "town": "London", "postcode": "SE19 3AF", "rating": 4.8, "lat": 51.4231, "lon": -0.0865, "website": "https://www.crystalpalacereptiles.com", "region": "London"}, {"name": "Jungle Reptiles", "town": "Bracknell", "postcode": "RG42 6EJ", "rating": 5.0, "lat": 51.417, "lon": -0.7582, "website": "https://www.junglereptiles.uk", "region": "South East"}, {"name": "Slitherin Reptiles", "town": "Leicester", "postcode": "LE1 4SA", "rating": 4.7, "lat": 52.6369, "lon": -1.1398, "website": "https://www.slitherinreptiles.com", "region": "East Midlands"}, {"name": "Internet Reptile", "town": "Nottingham", "postcode": "NG7 7FN", "rating": 4.6, "lat": 52.9548, "lon": -1.1581, "website": "https://www.internetreptile.com", "region": "East Midlands"}, {"name": "Blackpool Reptiles & Aquatics", "town": "Blackpool", "postcode": "FY1 6ES", "rating": 4.7, "lat": 53.8142, "lon": -3.0501, "website": "https://www.blackpoolreptiles.co.uk", "region": "Other"}, {"name": "Reptile Cymru", "town": "Cardiff", "postcode": "CF11 6RL", "rating": 4.6, "lat": 51.477, "lon": -3.173, "website": "https://www.reptilecymru.co.uk", "region": "Wales"}, {"name": "Dearne Valley Pets", "town": "Wombwell, Barnsley", "postcode": "S73 8DJ", "rating": 4.9, "lat": 53.523, "lon": -1.3901, "website": "", "region": "Other"}, {"name": "Northampton Reptile Centre", "town": "Northampton", "postcode": "NN5 5DA", "rating": 4.7, "lat": 52.2538, "lon": -0.8777, "website": "https://www.reptilecentre.com", "region": "Other"}, {"name": "Pro-Rep", "town": "Ongar, Essex", "postcode": "CM5 0EN", "rating": 4.4, "lat": 51.731, "lon": 0.26, "website": "https://www.pro-rep.co.uk", "region": "Other"}, {"name": "Natures Grub", "town": "Fakenham, Norfolk", "postcode": "NR21 8HW", "rating": 4.5, "lat": 52.82, "lon": 0.833, "website": "https://www.naturesgrub.co.uk", "region": "Other"}, {"name": "Snakes N Adders", "town": "Sheffield", "postcode": "S3 8UL", "rating": 4.9, "lat": 53.3889, "lon": -1.4719, "website": "https://www.snakesnadders.com", "region": "Yorkshire & Humber"}, {"name": "The Lizard Lounge", "town": "Sheffield", "postcode": "S10 1EW", "rating": 4.7, "lat": 53.3772, "lon": -1.5014, "website": "", "region": "Yorkshire & Humber"}, {"name": "Tanked", "town": "Barnsley", "postcode": "S70 1TH", "rating": 4.6, "lat": 53.5526, "lon": -1.4797, "website": "", "region": "Yorkshire & Humber"}, {"name": "Aqua Inn", "town": "Barnsley", "postcode": "S70 4LU", "rating": 4.4, "lat": 53.5295, "lon": -1.4583, "website": "", "region": "Yorkshire & Humber"}, {"name": "MMA Reptiles", "town": "Liverpool", "postcode": "L9 7BN", "rating": 4.5, "lat": 53.465, "lon": -2.9647, "website": "", "region": "North West"}, {"name": "Peculiar Pets", "town": "Hucknall", "postcode": "NG15 7SZ", "rating": 4.6, "lat": 53.033, "lon": -1.199, "website": "", "region": "East Midlands"}, {"name": "Urban Exotics", "town": "Kirkby in Ashfield", "postcode": "NG17 7LF", "rating": 4.7, "lat": 53.1003, "lon": -1.2627, "website": "https://www.urbanexotics.co.uk", "region": "Other"}];
+    let shops = [];
+
+    async function loadShops() {
+      try {
+        const res = await fetch('https://repticareai.com/shops.json');
+        shops = await res.json();
+        filterShops();
+      } catch (error) {
+        document.getElementById('results').innerHTML = '<p>Error loading shops. Please try again later.</p>';
+      }
+    }
 
     function filterShops() {
       const query = document.getElementById('searchBox').value.toLowerCase();
       const region = document.getElementById('regionFilter').value;
 
       const filtered = shops.filter(shop => {
-        const matchRegion = !region || (shop.region === region);
+        const matchRegion = !region || shop.region === region;
         const matchSearch = !query || shop.town.toLowerCase().includes(query) || shop.postcode.toLowerCase().includes(query);
         return matchRegion && matchSearch;
       });
 
       const resultsDiv = document.getElementById('results');
-      resultsDiv.innerHTML = filtered.map(shop => `
-        <div class="shop">
-          <h3>${shop.name}</h3>
-          <p>${shop.town} (${shop.postcode})<br>
-          Rating: ${shop.rating} ⭐<br>
-          ${shop.website ? `<a href="${shop.website}" target="_blank">Visit Website</a> | ` : ''}
-          <a href="https://www.google.com/maps/search/?api=1&query=${shop.lat},${shop.lon}" target="_blank">View on Map</a></p>
-        </div>
-      `).join('') || '<p>No shops found.</p>';
+      resultsDiv.innerHTML = filtered.map(shop => {
+        const website = shop.website && shop.website.trim() !== '' 
+          ? `<a href="${shop.website}" target="_blank">Visit Website</a> | `
+          : '';
+        const mapLink = shop.lat && shop.lon
+          ? `https://www.google.com/maps/search/?api=1&query=${shop.lat},${shop.lon}`
+          : `https://www.google.com/maps/search/${encodeURIComponent(shop.name + ' ' + shop.postcode)}`;
+        return `
+          <div class="shop">
+            <h3>${shop.name}</h3>
+            <p>
+              ${shop.town} (${shop.postcode})<br>
+              Rating: ${shop.rating} ⭐<br>
+              ${website}<a href="${mapLink}" target="_blank">View on Map</a>
+            </p>
+          </div>
+        `;
+      }).join('') || '<p>No shops found.</p>';
     }
 
     document.getElementById('searchBox').addEventListener('input', filterShops);
     document.getElementById('regionFilter').addEventListener('change', filterShops);
 
-    filterShops();
+    loadShops();
   </script>
 </body>
 </html>
