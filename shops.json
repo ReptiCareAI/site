@@ -5,7 +5,8 @@
     "postcode": "SE19 3AF",
     "rating": 4.8,
     "website": "https://www.crystalpalacereptiles.com",
-    "map": "https://www.google.com/maps/search/Crystal+Palace+Reptiles+SE19+3AF"
+    "map": "https://www.google.com/maps/search/Crystal+Palace+Reptiles+SE19+3AF",
+    "region": "London"
   },
   {
     "name": "Jungle Reptiles",
@@ -13,7 +14,8 @@
     "postcode": "RG42 6EJ",
     "rating": 5.0,
     "website": "https://www.junglereptiles.uk",
-    "map": "https://www.google.com/maps/search/Jungle+Reptiles+RG42+6EJ"
+    "map": "https://www.google.com/maps/search/Jungle+Reptiles+RG42+6EJ",
+    "region": "South East"
   },
   {
     "name": "Slitherin Reptiles",
@@ -21,7 +23,8 @@
     "postcode": "LE1 4SA",
     "rating": 4.7,
     "website": "https://www.slitherinreptiles.com",
-    "map": "https://www.google.com/maps/search/Slitherin+Reptiles+LE1+4SA"
+    "map": "https://www.google.com/maps/search/Slitherin+Reptiles+LE1+4SA",
+    "region": "East Midlands"
   },
   {
     "name": "Internet Reptile",
@@ -29,7 +32,8 @@
     "postcode": "NG7 7FN",
     "rating": 4.6,
     "website": "https://www.internetreptile.com",
-    "map": "https://www.google.com/maps/search/Internet+Reptile+NG7+7FN"
+    "map": "https://www.google.com/maps/search/Internet+Reptile+NG7+7FN",
+    "region": "East Midlands"
   },
   {
     "name": "Blackpool Reptiles & Aquatics",
@@ -37,7 +41,8 @@
     "postcode": "FY1 6ES",
     "rating": 4.7,
     "website": "https://www.blackpoolreptiles.co.uk",
-    "map": "https://www.google.com/maps/search/Blackpool+Reptiles+FY1+6ES"
+    "map": "https://www.google.com/maps/search/Blackpool+Reptiles+FY1+6ES",
+    "region": "North West"
   },
   {
     "name": "Reptile Cymru",
@@ -45,7 +50,8 @@
     "postcode": "CF11 6RL",
     "rating": 4.6,
     "website": "https://www.reptilecymru.co.uk",
-    "map": "https://www.google.com/maps/search/Reptile+Cymru+CF11+6RL"
+    "map": "https://www.google.com/maps/search/Reptile+Cymru+CF11+6RL",
+    "region": "Wales"
   },
   {
     "name": "Dearne Valley Pets",
@@ -53,7 +59,8 @@
     "postcode": "S73 8DJ",
     "rating": 4.9,
     "website": "https://www.dearnevalleypetcentre.com",
-    "map": "https://www.google.com/maps/search/Dearne+Valley+Pets+S73+8DJ"
+    "map": "https://www.google.com/maps/search/Dearne+Valley+Pets+S73+8DJ",
+    "region": "Yorkshire & Humber"
   },
   {
     "name": "Northampton Reptile Centre",
@@ -61,7 +68,8 @@
     "postcode": "NN5 5DA",
     "rating": 4.7,
     "website": "https://www.reptilecentre.com",
-    "map": "https://www.google.com/maps/search/Northampton+Reptile+Centre+NN5+5DA"
+    "map": "https://www.google.com/maps/search/Northampton+Reptile+Centre+NN5+5DA",
+    "region": "East Midlands"
   },
   {
     "name": "Pro-Rep",
@@ -69,7 +77,8 @@
     "postcode": "CM5 0EN",
     "rating": 4.4,
     "website": "https://www.pro-rep.co.uk",
-    "map": "https://www.google.com/maps/search/Pro-Rep+CM5+0EN"
+    "map": "https://www.google.com/maps/search/Pro-Rep+CM5+0EN",
+    "region": "East of England"
   },
   {
     "name": "Natures Grub",
@@ -77,6 +86,7 @@
     "postcode": "NR21 8HW",
     "rating": 4.5,
     "website": "https://www.naturesgrub.co.uk",
-    "map": "https://www.google.com/maps/search/Natures+Grub+NR21+8HW"
+    "map": "https://www.google.com/maps/search/Natures+Grub+NR21+8HW",
+    "region": "East of England"
   }
 ]
