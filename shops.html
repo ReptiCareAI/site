@@ -72,54 +72,50 @@
 
   <div id="results"><p>Loading shops...</p></div>
 
-  <script>
-    let shops = [];
+<script>
+  let shops = [];
 
-    async function loadShops() {
-      try {
-        const res = await fetch('https://repticareai.com/shops.json');
-        shops = await res.json();
-        filterShops();
-      } catch (error) {
-        document.getElementById('results').innerHTML = '<p>Error loading shops. Please try again later.</p>';
-      }
+  async function loadShops() {
+    try {
+      const response = await fetch('shops.json');
+      shops = await response.json();
+      filterShops(); // initial load
+    } catch (err) {
+      document.getElementById('results').innerHTML = '<p style="color:red;">Failed to load shops.</p>';
+      console.error(err);
     }
+  }
 
-    function filterShops() {
-      const query = document.getElementById('searchBox').value.toLowerCase();
-      const region = document.getElementById('regionFilter').value;
+  function filterShops() {
+    const query = document.getElementById('searchBox').value.toLowerCase();
+    const region = document.getElementById('regionFilter').value;
 
-      const filtered = shops.filter(shop => {
-        const matchRegion = !region || shop.region === region;
-        const matchSearch = !query || shop.town.toLowerCase().includes(query) || shop.postcode.toLowerCase().includes(query);
-        return matchRegion && matchSearch;
-      });
+    const filtered = shops.filter(shop => {
+      const matchRegion = !region || shop.region === region;
+      const matchSearch =
+        !query ||
+        shop.town.toLowerCase().includes(query) ||
+        shop.postcode.toLowerCase().includes(query.replace(/\s+/g, ''));
+      return matchRegion && matchSearch;
+    });
 
-      const resultsDiv = document.getElementById('results');
-      resultsDiv.innerHTML = filtered.map(shop => {
-        const website = shop.website && shop.website.trim() !== '' 
-          ? `<a href="${shop.website}" target="_blank">Visit Website</a> | `
-          : '';
-        const mapLink = shop.lat && shop.lon
-          ? `https://www.google.com/maps/search/?api=1&query=${shop.lat},${shop.lon}`
-          : `https://www.google.com/maps/search/${encodeURIComponent(shop.name + ' ' + shop.postcode)}`;
-        return `
-          <div class="shop">
-            <h3>${shop.name}</h3>
-            <p>
-              ${shop.town} (${shop.postcode})<br>
-              Rating: ${shop.rating} ⭐<br>
-              ${website}<a href="${mapLink}" target="_blank">View on Map</a>
-            </p>
-          </div>
-        `;
-      }).join('') || '<p>No shops found.</p>';
-    }
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = filtered.map(shop => `
+      <div class="shop">
+        <h3>${shop.name}</h3>
+        <p>${shop.town} (${shop.postcode})<br>
+        Rating: ${shop.rating} ⭐<br>
+        ${shop.website ? `<a href="${shop.website}" target="_blank">Visit Website</a> | ` : ''}
+        <a href="${shop.map}" target="_blank">View on Map</a></p>
+      </div>
+    `).join('') || '<p>No shops found.</p>';
+  }
 
-    document.getElementById('searchBox').addEventListener('input', filterShops);
-    document.getElementById('regionFilter').addEventListener('change', filterShops);
+  document.getElementById('searchBox').addEventListener('input', filterShops);
+  document.getElementById('regionFilter').addEventListener('change', filterShops);
 
-    loadShops();
-  </script>
+  loadShops();
+</script>
+
 </body>
 </html>
