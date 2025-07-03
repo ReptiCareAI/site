@@ -53,7 +53,7 @@
 </head>
 <body>
   <h1>🔍 Find a Reptile Shop</h1>
-  <p>Enter a town/city or postcode, or filter by region:</p>
+  <p>Enter a town or postcode, or filter by region:</p>
   <input type="text" id="searchBox" placeholder="Enter town or postcode...">
   <select id="regionFilter">
     <option value="">All Regions</option>
@@ -86,19 +86,50 @@
     }
   }
 
-  function filterShops() {
-    const query = document.getElementById('searchBox').value.toLowerCase();
+  async function filterShops() {
+    const query = document.getElementById('searchBox').value.trim().toUpperCase();
     const region = document.getElementById('regionFilter').value;
 
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = '<p>Loading results...</p>';
+
+    // If it's a full UK postcode, use radius search
+    if (/^[A-Z]{1,2}\d{1,2}[A-Z]?\d[A-Z]{2}$/.test(query.replace(/\s+/g, ''))) {
+      try {
+        const res = await fetch(`https://api.postcodes.io/postcodes/${query}`);
+        const data = await res.json();
+        if (data.status === 200) {
+          const userLat = data.result.latitude;
+          const userLon = data.result.longitude;
+
+          const filtered = shops.filter(shop => {
+            if (!shop.lat || !shop.lon) return false;
+            const distance = getDistanceMiles(userLat, userLon, shop.lat, shop.lon);
+            return distance <= 25;
+          });
+
+          displayResults(filtered);
+          return;
+        }
+      } catch (err) {
+        console.error('Postcode lookup failed:', err);
+      }
+    }
+
+    // Fallback to normal region/town search
     const filtered = shops.filter(shop => {
       const matchRegion = !region || shop.region === region;
       const matchSearch =
         !query ||
-        shop.town.toLowerCase().includes(query) ||
-        shop.postcode.toLowerCase().includes(query.replace(/\s+/g, ''));
+        shop.town.toLowerCase().includes(query.toLowerCase()) ||
+        shop.postcode.replace(/\s+/g, '').toLowerCase().includes(query.toLowerCase().replace(/\s+/g, ''));
       return matchRegion && matchSearch;
     });
 
+    displayResults(filtered);
+  }
+
+  function displayResults(filtered) {
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = filtered.map(shop => `
       <div class="shop">
@@ -111,11 +142,23 @@
     `).join('') || '<p>No shops found.</p>';
   }
 
+  function getDistanceMiles(lat1, lon1, lat2, lon2) {
+    const R = 3958.8; // radius of Earth in miles
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) ** 2 +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon/2) ** 2;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
+  }
+
   document.getElementById('searchBox').addEventListener('input', filterShops);
   document.getElementById('regionFilter').addEventListener('change', filterShops);
 
   loadShops();
 </script>
+
 
 </body>
 </html>
