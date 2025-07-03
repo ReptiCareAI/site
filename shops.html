@@ -108,7 +108,7 @@
 
     // Check if input is a postcode
     const postcodeRegex = /^[A-Z]{1,2}[0-9][0-9A-Z]?\s?[0-9][A-Z]{2}$/i;
-    if (postcodeRegex.test(input)) {
+    if (input.length > 5 && postcodeRegex.test(input)) {
       getLatLonFromPostcode(input).then(coords => {
         if (!coords) return displayShops([]);
         const nearby = shops.filter(shop => {
