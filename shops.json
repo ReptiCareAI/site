@@ -1,5 +1,4 @@
 [
-[
   {"name":"Crystal Palace Reptiles","town":"London","postcode":"SE19 3AF","rating":4.8,"lat":51.4231,"lon":-0.0865,"website":"https://www.crystalpalacereptiles.com"},
   {"name":"Jungle Reptiles","town":"Bracknell","postcode":"RG42 6EJ","rating":5.0,"lat":51.4170,"lon":-0.7582,"website":"https://www.junglereptiles.uk"},
   {"name":"Slitherin Reptiles","town":"Leicester","postcode":"LE1 4SA","rating":4.7,"lat":52.6369,"lon":-1.1398,"website":"https://www.slitherinreptiles.com"},
@@ -33,6 +32,4 @@
   {"name":"Sci‑Therm Reptile Shop","town":"Nottingham","postcode":"NG6 8UJ","rating":4.2,"lat":52.9870,"lon":-1.1950,"website":"https://www.scitherm.co.uk"},
   {"name":"Reptile Rescue & Rescue UK","town":"Edinburgh","postcode":"EH12 8TS","rating":4.5,"lat":55.9470,"lon":-3.3300,"website":"https://www.reptilerescue.org.uk"},
   {"name":"Reptiles Direct","town":"Chorley","postcode":"PR7 1NB","rating":4.4,"lat":53.6530,"lon":-2.6330,"website":"https://www.reptilesdirect.co.uk"}
-]
-
 ]
