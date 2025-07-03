@@ -30,5 +30,69 @@
   {"name":"Scales & Tails","town":"Hull","postcode":"HU3 2RA","rating":4.3,"lat":53.7430,"lon":-0.3310,"website":"https://www.scalesandtails.co.uk"},
   {"name":"Sci‑Therm Reptile Shop","town":"Nottingham","postcode":"NG6 8UJ","rating":4.2,"lat":52.9870,"lon":-1.1950,"website":"https://www.scitherm.co.uk"},
   {"name":"Reptile Rescue & Rescue UK","town":"Edinburgh","postcode":"EH12 8TS","rating":4.5,"lat":55.9470,"lon":-3.3300,"website":"https://www.reptilerescue.org.uk"},
+    {
+  "name": "Snakes N Adders",
+  "town": "Sheffield",
+  "postcode": "S2 4QU",
+  "rating": 4.8,
+  "lat": 53.3729,
+  "lon": -1.4634,
+  "website": "https://www.snakesnadders.co.uk"
+},
+{
+  "name": "The Lizard Lounge",
+  "town": "Sheffield",
+  "postcode": "S6 2AF",
+  "rating": 4.7,
+  "lat": 53.3976,
+  "lon": -1.5036,
+  "website": ""
+},
+{
+  "name": "Tanked",
+  "town": "Barnsley",
+  "postcode": "S71 1NL",
+  "rating": 4.5,
+  "lat": 53.5530,
+  "lon": -1.4797,
+  "website": ""
+},
+{
+  "name": "Aqua Inn",
+  "town": "Barnsley",
+  "postcode": "S70 1TF",
+  "rating": 4.4,
+  "lat": 53.5533,
+  "lon": -1.4804,
+  "website": ""
+},
+{
+  "name": "MMA Reptiles",
+  "town": "Leeds",
+  "postcode": "LS9 8BD",
+  "rating": 4.6,
+  "lat": 53.7981,
+  "lon": -1.5208,
+  "website": ""
+},
+{
+  "name": "Peculiar Pets",
+  "town": "Southampton",
+  "postcode": "SO15 5DS",
+  "rating": 4.4,
+  "lat": 50.9177,
+  "lon": -1.4343,
+  "website": ""
+},
+{
+  "name": "Urban Exotics",
+  "town": "Kirkby-in-Ashfield",
+  "postcode": "NG17 7LE",
+  "rating": 4.9,
+  "lat": 53.1010,
+  "lon": -1.2501,
+  "website": "https://www.urbanexotics.co.uk"
+},
+
   {"name":"Reptiles Direct","town":"Chorley","postcode":"PR7 1NB","rating":4.4,"lat":53.6530,"lon":-2.6330,"website":"https://www.reptilesdirect.co.uk"}
 ]
