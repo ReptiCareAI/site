@@ -1,90 +1,92 @@
 [
-  {"name":"Crystal Palace Reptiles","town":"London","postcode":"SE19 3AF","rating":4.8,"lat":51.4231,"lon":-0.0865,"website":"https://www.crystalpalacereptiles.com"},
-  {"name":"Jungle Reptiles","town":"Bracknell","postcode":"RG42 6EJ","rating":5.0,"lat":51.4170,"lon":-0.7582,"website":"https://www.junglereptiles.uk"},
-  {"name":"Slitherin Reptiles","town":"Leicester","postcode":"LE1 4SA","rating":4.7,"lat":52.6369,"lon":-1.1398,"website":"https://www.slitherinreptiles.com"},
-  {"name":"Internet Reptile","town":"Nottingham","postcode":"NG7 7FN","rating":4.6,"lat":52.9548,"lon":-1.1581,"website":"https://www.internetreptile.com"},
-  {"name":"Blackpool Reptiles & Aquatics","town":"Blackpool","postcode":"FY1 6ES","rating":4.7,"lat":53.8142,"lon":-3.0501,"website":"https://www.blackpoolreptiles.co.uk"},
-  {"name":"Reptile Cymru","town":"Cardiff","postcode":"CF11 6RL","rating":4.6,"lat":51.4770,"lon":-3.1730,"website":"https://www.reptilecymru.co.uk"},
-  {"name":"Dearne Valley Pets","town":"Wombwell, Barnsley","postcode":"S73 8DJ","rating":4.9,"lat":53.5230,"lon":-1.3901,"website":""},
-  {"name":"Northampton Reptile Centre","town":"Northampton","postcode":"NN5 5DA","rating":4.7,"lat":52.2538,"lon":-0.8777,"website":"https://www.reptilecentre.com"},
-  {"name":"Pro-Rep","town":"Ongar, Essex","postcode":"CM5 0EN","rating":4.4,"lat":51.7310,"lon":0.2600,"website":"https://www.pro-rep.co.uk"},
-  {"name":"Natures Grub","town":"Fakenham, Norfolk","postcode":"NR21 8HW","rating":4.5,"lat":52.8200,"lon":0.8330,"website":"https://www.naturesgrub.co.uk"},
-  {"name":"Aqua-Pac","town":"Glasgow","postcode":"G20 9PX","rating":4.3,"lat":55.8710,"lon":-4.2730,"website":"https://www.aqua-pac.co.uk"},
-  {"name":"Perry's Reptile Centre","town":"Burton-on-Trent","postcode":"DE15 9RA","rating":4.5,"lat":52.8000,"lon":-1.6360,"website":"https://www.perrysreptilecentre.co.uk"},
-  {"name":"Rainforest Exotics","town":"Ross-on-Wye","postcode":"HR9 5LA","rating":4.6,"lat":51.9120,"lon":-2.5870,"website":"https://www.rainforestexotics.co.uk"},
-  {"name":"Swell Reptiles","town":"Hyde, Cheshire","postcode":"SK14 4QF","rating":4.8,"lat":53.4490,"lon":-2.0640,"website":"https://www.reptiles.swelluk.com"},
-  {"name":"Global Geckos","town":"Windlesham, Surrey","postcode":"GU20 6AF","rating":5.0,"lat":51.3270,"lon":-0.6700,"website":"https://www.globalgeckos.co.uk"},
-  {"name":"Crystal Dragon Reptiles","town":"Manchester","postcode":"M20 3PU","rating":4.7,"lat":53.4245,"lon":-2.2192,"website":"https://www.crystaldragonreptiles.co.uk"},
-  {"name":"Exotic Emporium","town":"South Shields","postcode":"NE33 1BJ","rating":4.6,"lat":54.9990,"lon":-1.4300,"website":"https://www.exoticemporium.co.uk"},
-  {"name":"Reptile Rehab","town":"Dorset","postcode":"DT3 5BX","rating":4.5,"lat":50.7400,"lon":-2.5660,"website":"https://www.reptile-rehab.org"},
-  {"name":"Cotswold Wild Pets","town":"Cirencester","postcode":"GL7 2NY","rating":4.6,"lat":51.7206,"lon":-1.9859,"website":"https://www.cotswoldwildpets.co.uk"},
-  {"name":"East Aquatics & Reptiles","town":"Ipswich","postcode":"IP3 8EP","rating":4.5,"lat":52.0480,"lon":1.1590,"website":"https://www.eastaquatics.co.uk"},
-  {"name":"Triple T Reptiles","town":"Bradford","postcode":"BD4 8PH","rating":4.4,"lat":53.8090,"lon":-1.7590,"website":"https://www.triple-t-reptiles.co.uk"},
-  {"name":"Dragon Reptiles","town":"Plymouth","postcode":"PL7 2AA","rating":4.6,"lat":50.3810,"lon":-4.1310,"website":"https://www.dragonreptiles.co.uk"},
-  {"name":"Continental Pet Supplies","town":"Leeds","postcode":"LS11 8AH","rating":4.3,"lat":53.8008,"lon":-1.5571,"website":"https://www.continentalpetsupplies.co.uk"},
-  {"name":"UK Jellyfish Store","town":"Hull","postcode":"HU8 9QB","rating":4.2,"lat":53.7180,"lon":-0.3540,"website":"https://www.ukjellyfishstore.co.uk"},
-  {"name":"The Reptile Shop","town":"Gloucester","postcode":"GL1 1HP","rating":4.5,"lat":51.8650,"lon":-2.2380,"website":"https://www.thereptileshop.co.uk"},
-  {"name":"Exotic Reptiles & Amphibians","town":"Wales","postcode":"CF72 8XP","rating":4.4,"lat":51.5760,"lon":-3.4410,"website":"https://www.exoticreptilesandamphibians.co.uk"},
-  {"name":"Leicester Reptiles","town":"Leicester","postcode":"LE4 5JP","rating":4.7,"lat":52.6200,"lon":-1.1380,"website":"https://www.leicesterreptiles.uk"},
-  {"name":"Northern Reptiles UK","town":"Wakefield","postcode":"WF1 1HU","rating":4.4,"lat":53.6830,"lon":-1.4980,"website":"https://www.northernreptiles.co.uk"},
-  {"name":"Scales & Tails","town":"Hull","postcode":"HU3 2RA","rating":4.3,"lat":53.7430,"lon":-0.3310,"website":"https://www.scalesandtails.co.uk"},
-  {"name":"Sci‑Therm Reptile Shop","town":"Nottingham","postcode":"NG6 8UJ","rating":4.2,"lat":52.9870,"lon":-1.1950,"website":"https://www.scitherm.co.uk"},
-  {"name":"Reptile Rescue & Rescue UK","town":"Edinburgh","postcode":"EH12 8TS","rating":4.5,"lat":55.9470,"lon":-3.3300,"website":"https://www.reptilerescue.org.uk"},
-  {"name": "Snakes N Adders","town": "Sheffield","postcode": "S2 4QU","rating": 4.8,"lat": 53.3729,"lon": -1.4634,"website": "https://www.snakesnadders.co.uk"},
-{
-  "name": "The Lizard Lounge",
-  "town": "Sheffield",
-  "postcode": "S6 2AF",
-  "rating": 4.7,
-  "lat": 53.3976,
-  "lon": -1.5036,
-  "website": ""
-},
-{
-  "name": "Tanked",
-  "town": "Barnsley",
-  "postcode": "S71 1NL",
-  "rating": 4.5,
-  "lat": 53.5530,
-  "lon": -1.4797,
-  "website": ""
-},
-{
-  "name": "Aqua Inn",
-  "town": "Barnsley",
-  "postcode": "S70 1TF",
-  "rating": 4.4,
-  "lat": 53.5533,
-  "lon": -1.4804,
-  "website": ""
-},
-{
-  "name": "MMA Reptiles",
-  "town": "Leeds",
-  "postcode": "LS9 8BD",
-  "rating": 4.6,
-  "lat": 53.7981,
-  "lon": -1.5208,
-  "website": ""
-},
-{
-  "name": "Peculiar Pets",
-  "town": "Southampton",
-  "postcode": "SO15 5DS",
-  "rating": 4.4,
-  "lat": 50.9177,
-  "lon": -1.4343,
-  "website": ""
-},
-{
-  "name": "Urban Exotics",
-  "town": "Kirkby-in-Ashfield",
-  "postcode": "NG17 7LE",
-  "rating": 4.9,
-  "lat": 53.1010,
-  "lon": -1.2501,
-  "website": "https://www.urbanexotics.co.uk"
-},
-
-  {"name":"Reptiles Direct","town":"Chorley","postcode":"PR7 1NB","rating":4.4,"lat":53.6530,"lon":-2.6330,"website":"https://www.reptilesdirect.co.uk"}
+  {
+    "name": "Crystal Palace Reptiles",
+    "town": "London (Upper Norwood)",
+    "postcode": "SE19 3AF",
+    "lat": 51.4231,
+    "lon": -0.0865,
+    "website": "https://www.crystalpalacereptiles.com",
+    "region": "London"
+  },
+  {
+    "name": "Jungle Reptiles",
+    "town": "Bracknell (Moss End Garden Village)",
+    "postcode": "RG42 6EJ",
+    "lat": 51.4130,
+    "lon": -0.7580,
+    "website": "https://www.junglereptiles.uk",
+    "region": "South East"
+  },
+  {
+    "name": "Slitherin Reptiles",
+    "town": "Leicester",
+    "postcode": "LE1 4SA",
+    "lat": 52.6369,
+    "lon": -1.1398,
+    "website": "https://www.slitherinreptiles.com",
+    "region": "East Midlands"
+  },
+  {
+    "name": "Internet Reptile",
+    "town": "Nottingham (Quayside Court)",
+    "postcode": "NG4 2SR",
+    "lat": 52.9410,
+    "lon": -1.1580,
+    "website": "https://www.internetreptile.com",
+    "region": "East Midlands"
+  },
+  {
+    "name": "Blackpool Reptiles & Aquatics",
+    "town": "Blackpool",
+    "postcode": "FY1 6ES",
+    "lat": 53.8120,
+    "lon": -3.0500,
+    "website": "https://www.blackpoolreptiles.co.uk",
+    "region": "North West"
+  },
+  {
+    "name": "Reptile Cymru",
+    "town": "Cardiff (Canton)",
+    "postcode": "CF5 1JG",
+    "lat": 51.4823,
+    "lon": -3.2091,
+    "website": "https://www.reptilecymru.co.uk",
+    "region": "Wales"
+  },
+  {
+    "name": "Dearne Valley Pets",
+    "town": "Wombwell, Barnsley",
+    "postcode": "S73 8UE",
+    "lat": 53.5230,
+    "lon": -1.3901,
+    "website": "",
+    "region": "Yorkshire & The Humber"
+  },
+  {
+    "name": "Northampton Reptile Centre",
+    "town": "Northampton",
+    "postcode": "NN5 5DA",
+    "lat": 52.2538,
+    "lon": -0.8777,
+    "website": "https://www.reptilecentre.com",
+    "region": "East Midlands"
+  },
+  {
+    "name": "Pro‑Rep",
+    "town": "Ongar, Essex",
+    "postcode": "CM5 0EN",
+    "lat": 51.7310,
+    "lon": 0.2600,
+    "website": "https://www.pro-rep.co.uk",
+    "region": "East of England"
+  },
+  {
+    "name": "Natures Grub",
+    "town": "Fakenham, Norfolk",
+    "postcode": "NR21 8HW",
+    "lat": 52.8200,
+    "lon": 0.8330,
+    "website": "https://www.naturesgrub.co.uk",
+    "region": "East of England"
+  }
 ]
