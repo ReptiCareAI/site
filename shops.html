@@ -1,106 +1,154 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Find a Reptile Shop Near You | ReptiCareAI</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #121212;
-            color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: #1e1e1e;
-        }
-        header h1 {
-            color: #00ffae;
-            margin-bottom: 10px;
-        }
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            background-color: #222;
-            color: #fff;
-        }
-        .shop {
-            background-color: #1e1e1e;
-            border: 1px solid #333;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        .shop h3 {
-            margin: 0;
-            color: #00ffae;
-        }
-        .shop a {
-            color: #00bfff;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReptiCareAI - Reptile Shop Locator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: #1e1e1e;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      color: #00ffae;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background-color: #222;
+      border: none;
+      color: #fff;
+      border-radius: 6px;
+    }
+
+    .shop {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .shop h3 {
+      color: #00ffae;
+      margin: 0 0 5px;
+    }
+
+    .shop a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Reptile Shop Finder</h1>
-        <p>Find top-rated reptile shops near you in the UK</p>
-    </header>
-    <main>
-        <input type="text" id="searchInput" placeholder="Enter town or postcode..." onkeyup="filterShops()">
-        <div id="results"></div>
-    </main>
 
-    <script>
-        let shops = [];
+<header>
+  <h1>🦎 Reptile Shop Finder</h1>
+</header>
 
-        fetch('shops.json')
-            .then(response => response.json())
-            .then(data => {
-                shops = data;
-            });
+<main>
+  <p>Enter a UK postcode or town name to find reptile shops near you:</p>
+  <input type="text" id="search" placeholder="e.g. S73 8DJ or Barnsley" oninput="filterShops()" />
 
-        function filterShops() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const results = document.getElementById('results');
-            results.innerHTML = '';
+  <div id="results">Loading shops...</div>
+</main>
 
-            const filtered = shops.filter(shop =>
-                shop.town.toLowerCase().includes(input) || shop.postcode.toLowerCase().includes(input)
-            );
+<footer>
+  <p>&copy; 2025 ReptiCareAI</p>
+</footer>
 
-            const top3 = filtered.slice(0, 3);
+<script>
+  let shops = [];
 
-            if (top3.length === 0) {
-                results.innerHTML = "<p>No shops found in that area.</p>";
-                return;
-            }
+  async function fetchShops() {
+    const res = await fetch('shops.json');
+    shops = await res.json();
+    displayShops(shops);
+  }
 
-            top3.forEach(shop => {
-                const shopCard = document.createElement('div');
-                shopCard.className = 'shop';
-                shopCard.innerHTML = `
-                    <h3>${shop.name}</h3>
-                    <p>${shop.town} (${shop.postcode})</p>
-                    <p>⭐ Rating: ${shop.rating}</p>
-                    <p><a href="https://maps.google.com/?q=${encodeURIComponent(shop.name + ' ' + shop.town)}" target="_blank">View on map</a></p>
-                `;
-                results.appendChild(shopCard);
-            });
-        }
-    </script>
+  function displayShops(filtered) {
+    const container = document.getElementById('results');
+    if (filtered.length === 0) {
+      container.innerHTML = "<p>No shops found.</p>";
+      return;
+    }
+    container.innerHTML = filtered.map(shop => `
+      <div class="shop">
+        <h3>${shop.name}</h3>
+        <p><strong>Town:</strong> ${shop.town}</p>
+        <p><strong>Postcode:</strong> ${shop.postcode}</p>
+        <p><strong>Rating:</strong> ${shop.rating}</p>
+        ${shop.website ? `<p><a href="${shop.website}" target="_blank">Visit Website</a></p>` : ''}
+      </div>
+    `).join('');
+  }
+
+  function filterShops() {
+    const input = document.getElementById('search').value.trim().toLowerCase();
+    if (!input) return displayShops(shops);
+
+    // Check if input is a postcode
+    const postcodeRegex = /^[A-Z]{1,2}[0-9][0-9A-Z]?\s?[0-9][A-Z]{2}$/i;
+    if (postcodeRegex.test(input)) {
+      getLatLonFromPostcode(input).then(coords => {
+        if (!coords) return displayShops([]);
+        const nearby = shops.filter(shop => {
+          const d = haversineDistance(coords.lat, coords.lon, shop.lat, shop.lon);
+          return d <= 25;
+        });
+        displayShops(nearby);
+      });
+    } else {
+      const townFiltered = shops.filter(shop =>
+        shop.town.toLowerCase().includes(input)
+      );
+      displayShops(townFiltered);
+    }
+  }
+
+  async function getLatLonFromPostcode(postcode) {
+    try {
+      const res = await fetch(`https://api.postcodes.io/postcodes/${encodeURIComponent(postcode)}`);
+      const data = await res.json();
+      if (!data.result) return null;
+      return { lat: data.result.latitude, lon: data.result.longitude };
+    } catch {
+      return null;
+    }
+  }
+
+  function haversineDistance(lat1, lon1, lat2, lon2) {
+    const toRad = angle => angle * Math.PI / 180;
+    const R = 3958.8; // miles
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a = Math.sin(dLat/2)**2 +
+              Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+              Math.sin(dLon/2)**2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  }
+
+  fetchShops();
+</script>
+
 </body>
 </html>
