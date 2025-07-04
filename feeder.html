@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ReptiCareAI Feeding Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1e1e1e;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-title img {
+      height: 45px;
+      margin-right: 15px;
+    }
+
+    .logo-title h1 {
+      color: #00ffae;
+      font-size: 24px;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin: 5px 15px;
+      font-size: 16px;
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        margin-top: 0;
+      }
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .card {
+      flex: 1 1 calc(33% - 20px);
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      min-width: 250px;
+      max-width: 100%;
+      transition: all 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 0 15px rgba(0, 255, 174, 0.3);
+      transform: scale(1.02);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #00ffae;
+    }
+
+    .card a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+
+    .section-title {
+      margin-top: 50px;
+      font-size: 24px;
+      color: #00ffae;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+    }
+
+    .soon-tag {
+      font-size: 12px;
+      color: #ffcc00;
+      background-color: #333;
+      padding: 2px 6px;
+      border-radius: 5px;
+      margin-left: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        flex: 1 1 100%;
+      }
+    }
+
+    footer {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 40px;
+      font-size: 14px;
+      border-top: 1px solid #333;
+    }
+
+    footer a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+      
+      <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #00ffae;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+
+    button {
+      background-color: #00ffae;
+      color: #121212;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 30px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .result h3 {
+      margin-top: 0;
+      color: #00ffae;
+    }
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HYZ7G76ZWS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HYZ7G76ZWS');
+</script>
+  <!-- Social preview -->
+  <meta property="og:title" content="ReptiCareAI">
+  <meta property="og:description" content="Cut through the confusion. Intelligent reptile care powered by real-world experience and AI.">
+  <meta property="og:image" content="https://repticareai.com/assets/social-card.png">
+  <meta property="og:url" content="https://repticareai.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter (X) preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ReptiCareAI">
+  <meta name="twitter:description" content="Smarter Reptile Care, Powered by AI. Built on real-world experience to cut through the noise.">
+  <meta name="twitter:image" content="https://repticareai.com/assets/social-card.png">
+</head>
+
+<body>
+  <h1>🧠 ReptiCareAI Feeding Planner</h1>
+  <p>Select your reptile and get a tailored feeding recommendation.</p>
+
+  <label for="species">Species:</label>
+  <select id="species">
+    <option value="">-- Choose a species --</option>
+    <option value="royal">Royal Python</option>
+    <option value="pine">Northern Pine Snake</option>
+    <option value="hognose">Plains Hognose</option>
+    <option value="beardie">Bearded Dragon</option>
+  </select>
+
+  <label for="age">Age Group:</label>
+  <select id="age">
+    <option value="">-- Select age group --</option>
+    <option value="hatchling">Hatchling</option>
+    <option value="juvenile">Juvenile</option>
+    <option value="adult">Adult</option>
+  </select>
+
+  <button onclick="getFeedingPlan()">Get Feeding Plan</button>
+
+  <div class="result" id="output" style="display: none;"></div>
+
+  <script>
+    const plans = {
+      royal: {
+        hatchling: "Feed a defrosted pinky rat or fuzzy mouse every 5–7 days. Ensure enclosure temps are correct to encourage feeding.",
+        juvenile: "Feed an appropriately sized rat pup every 7–10 days. Avoid over-handling during shed cycles.",
+        adult: "Feed a small to medium rat every 10–14 days. Monitor weight to avoid obesity."
+      },
+      pine: {
+        hatchling: "Feed pinky mice every 5–6 days. Pine snakes grow fast and are very food-driven.",
+        juvenile: "Feed fuzzy to hopper mice every 7–10 days. Can move to small rats depending on size.",
+        adult: "Feed adult mice or small rats every 10–14 days. Keep an eye on body condition—can become heavy easily."
+      },
+      hognose: {
+        hatchling: "Feed pinky mice every 4–5 days. Assist feeding may be required with scenting (e.g., tuna or frog scent).",
+        juvenile: "Feed one pinky or fuzzy mouse every 5–7 days. Monitor stools and adjust size as needed.",
+        adult: "Feed one adult mouse every 7–10 days. Avoid overfeeding—prone to obesity."
+      },
+      beardie: {
+        hatchling: "Feed daily: ~70% insects (crickets, roaches) and 30% finely chopped veg. Dust insects with calcium.",
+        juvenile: "Feed once or twice daily: 50% insects, 50% greens (e.g., kale, squash).",
+        adult: "Feed every other day: ~70% greens (dandelion, collards), 30% insects. Calcium 2–3x/week."
+      }
+    };
+
+    function getFeedingPlan() {
+      const species = document.getElementById("species").value;
+      const age = document.getElementById("age").value;
+      const output = document.getElementById("output");
+
+      if (!species || !age) {
+        output.style.display = "block";
+        output.innerHTML = "<h3>⚠️ Please select both a species and an age group.</h3>";
+        return;
+      }
+
+      const message = plans[species][age];
+      const speciesName = document.getElementById("species").selectedOptions[0].text;
+      const ageName = document.getElementById("age").selectedOptions[0].text;
+
+      output.style.display = "block";
+      output.innerHTML = `<h3>${speciesName} – ${ageName}</h3><p>${message}</p>`;
+    }
+  </script>
+</body>
+
+  <footer>
+    <p style="margin-bottom: 10px;">
+      ReptiCareAI is here to cut through the noise and provide intelligent, experience-backed guidance for modern reptile keepers.
+    </p>
+    <div style="margin: 10px 0;">
+      <a href="https://www.tiktok.com/@repti_care_ai" target="_blank" style="margin: 0 10px;">🐍 TikTok</a>
+      <a href="https://www.instagram.com/repticareai" target="_blank" style="margin: 0 10px;">📸 Instagram</a>
+      <a href="https://www.youtube.com/@Repti-Care-AI" target="_blank" style="margin: 0 10px;">▶️ YouTube</a>
+        <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Buy me some crickets!', '#72a4f2', 'T6T41HHRSP');kofiwidget2.draw();</script> 
+    </div>
+    <p>Contact us at <a href="mailto:repticareai@gmail.com">repticareai@gmail.com</a><br>
+    &copy; 2025 ReptiCareAI</p>
+  </footer>
+</body>
+</html>
