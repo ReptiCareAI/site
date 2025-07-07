@@ -214,6 +214,32 @@
       "notes": "4.7★ on Google (Dozens of reviews); family‑run exotic pet shop & boarding."
     },
     {
+      "name": "The Lizard Lounge",
+      "town": "Sheffield",
+      "postcode": "S6 4JR",
+      "rating": 4.8,
+      "website": "http://lizardlounge118.wixsite.com",
+      "phone": "+44 114 327 2262",
+      "lat": 53.4010,
+      "lon": -1.5052,
+      "region": "Yorkshire & Humber",
+      "map": "https://www.google.com/maps/search/The+Lizard+Lounge+Sheffield",
+      "notes": "4.8★ on Google (141 reviews); praised for knowledgeable, friendly staff and helpful advice." 
+    },
+    {
+      "name": "Mansfield Aquatic, Reptile & Pet Centre",
+      "town": "Mansfield",
+      "postcode": "NG18 2AG",
+      "rating": 4.6,
+      "website": "https://www.marpc.co.uk",
+      "phone": "+44 1623 431939",
+      "lat": 53.1440,
+      "lon": -1.1970,
+      "region": "East Midlands",
+      "map": "https://www.google.com/maps/search/Mansfield+Aquatic+Reptile+%26+Pet+Centre",
+      "notes": "4.6★ on Google (1,912 reviews); large independent pet & reptile centre."
+    },
+    {
       "name": "Reptilia Exotic Animal Rescue",
       "town": "Ossett",
       "postcode": "WF5 9BL",
