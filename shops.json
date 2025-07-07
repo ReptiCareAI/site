@@ -109,19 +109,6 @@
     "region": "East of England",
     "map": "https://www.google.com/maps/search/Natures+Grub+NR21+8HW"
   },
-        {
-      "name": "Reptilia Exotic Animal Rescue",
-      "town": "Ossett",
-      "postcode": "WF5 9BL",
-      "rating": 4.5,
-      "website": "https://www.reptiliaexoticanimalrescues.com",
-      "phone": "+44 1924 694461",
-      "lat": 53.6815,
-      "lon": -1.5150,
-      "region": "Yorkshire & Humber",
-      "map": "https://www.google.com/maps/search/7+Towngate,+Ossett+WF5+9BL",
-      "notes": "Rescue & rehoming centre; licensed exotic shop; boarding & workshops."
-    },
     {
       "name": "Birmingham Reptiles & Pets",
       "town": "Birmingham",
@@ -147,6 +134,19 @@
       "region": "Yorkshire & Humber",
       "map": "https://www.google.com/maps/search/39-41+Mansfield+Road,+Sheffield+S12+2AG",
       "notes": "Premier reptile centre since 2000, trusted by vets and zoos, RRK member."
+    },
+        {
+      "name": "Primitive Pets",
+      "town": "Ossett",
+      "postcode": "WF5 8AD",
+      "rating": 5.0,
+      "website": "https://www.primitivepets.co.uk",
+      "phone": "+44 1924 900303",
+      "lat": 53.6840,
+      "lon": -1.5470,
+      "region": "Yorkshire & Humber",
+      "map": "https://www.google.com/maps/search/Primitive+Pets+Ossett",
+      "notes": "5.0★ on Google (approx. 19 reviews); exotic specialist & rescue."
     },
     {
       "name": "MMA Reptiles",
