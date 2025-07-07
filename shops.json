@@ -135,6 +135,19 @@
       "map": "https://www.google.com/maps/search/39-41+Mansfield+Road,+Sheffield+S12+2AG",
       "notes": "Premier reptile centre since 2000, trusted by vets and zoos, RRK member."
     },
+    {
+  "name": "Dragon Aquatics",
+  "town": "Paisley",
+  "postcode": "PA1 2BX",
+  "rating": 4.8,
+  "website": null,
+  "phone": null,
+  "lat": 55.8470,
+  "lon": -4.4234,
+  "region": "Scotland",
+  "map": "https://www.google.com/maps/search/Dragon+Aquatics+Paisley",
+  "notes": "4.8★ on Google (288 reviews); praised for helpful staff, clean store, quality reptiles." 
+},
         {
       "name": "Primitive Pets",
       "town": "Ossett",
@@ -160,6 +173,45 @@
       "region": "East Midlands",
       "map": "https://www.google.com/maps/search/28+Elmton+Rd,+Creswell+S80+4ES",
       "notes": "Open limited hours, dog‑friendly, online + in-store service."
+    },
+        {
+      "name": "Nuneaton Reptiles & Exotics",
+      "town": "Nuneaton",
+      "postcode": "CV10 7NB",
+      "rating": 4.9,
+      "website": "https://www.nuneatonreptiles.co.uk",
+      "phone": "024 7798 3286",
+      "lat": 52.5235,
+      "lon": -1.4694,
+      "region": "West Midlands",
+      "map": "https://www.google.com/maps/search/Nuneaton+Reptiles+%26+Exotics",
+      "notes": "4.9★ on Google (100+ reviews); praised for knowledgeable, helpful staff." 
+    },
+    {
+      "name": "Clubmoor Pets & Reptiles",
+      "town": "Liverpool",
+      "postcode": "L11 4BW",
+      "rating": 4.85,
+      "website": null,
+      "phone": null,
+      "lat": 53.4100,
+      "lon": -2.8800,
+      "region": "North West",
+      "map": "https://www.google.com/maps/search/Clubmoor+Pets+%26+Reptiles",
+      "notes": "4.85★ from 600+ reviews aggregated on Cylex/Yably; praised for knowledgeable staff and range."
+    },
+    {
+      "name": "Tropical Exotics",
+      "town": "Rhuddlan",
+      "postcode": "LL18 5UZ",
+      "rating": 4.7,
+      "website": "https://www.tropicalexotics.co.uk",
+      "phone": "01745 314636",
+      "lat": 53.2365,
+      "lon": -3.4284,
+      "region": "Wales",
+      "map": "https://www.google.com/maps/search/Tropical+Exotics+Rhuddlan",
+      "notes": "4.7★ on Google (Dozens of reviews); family‑run exotic pet shop & boarding."
     },
     {
       "name": "Reptilia Exotic Animal Rescue",
