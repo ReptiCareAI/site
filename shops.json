@@ -108,5 +108,71 @@
     "lon": 0.833,
     "region": "East of England",
     "map": "https://www.google.com/maps/search/Natures+Grub+NR21+8HW"
-  }
+  },
+        {
+      "name": "Reptilia Exotic Animal Rescue",
+      "town": "Ossett",
+      "postcode": "WF5 9BL",
+      "rating": 4.5,
+      "website": "https://www.reptiliaexoticanimalrescues.com",
+      "phone": "+44 1924 694461",
+      "lat": 53.6815,
+      "lon": -1.5150,
+      "region": "West Yorkshire",
+      "map": "https://www.google.com/maps/search/7+Towngate,+Ossett+WF5+9BL",
+      "notes": "Rescue & rehoming centre; licensed exotic shop; boarding & workshops."
+    },
+    {
+      "name": "Birmingham Reptiles & Pets",
+      "town": "Birmingham",
+      "postcode": "B23 7LX",
+      "rating": 4.1,
+      "website": "https://www.birminghamreptiles.co.uk",
+      "phone": "+44 121 386 1160",
+      "lat": 52.5417,
+      "lon": -1.8220,
+      "region": "West Midlands",
+      "map": "https://www.google.com/maps/search/274+Slade+Rd,+Birmingham+B23+7LX",
+      "notes": "Family-run since 1992, full-time reptile staff, boarding services."
+    },
+    {
+      "name": "Snakes 'n' Adders",
+      "town": "Sheffield",
+      "postcode": "S12 2AG",
+      "rating": 4.8,
+      "website": "https://www.snakesnaddersonline.co.uk",
+      "phone": "+44 114 265 8299",
+      "lat": 53.3614,
+      "lon": -1.4412,
+      "region": "South Yorkshire",
+      "map": "https://www.google.com/maps/search/39-41+Mansfield+Road,+Sheffield+S12+2AG",
+      "notes": "Premier reptile centre since 2000, trusted by vets and zoos, RRK member."
+    },
+    {
+      "name": "MMA Reptiles",
+      "town": "Creswell (Worksop)",
+      "postcode": "S80 4ES",
+      "rating": 5.0,
+      "website": "https://www.mmareptiles.co.uk",
+      "phone": "+44 7467 415535",
+      "lat": 53.2760,
+      "lon": -1.2170,
+      "region": "Nottinghamshire",
+      "map": "https://www.google.com/maps/search/28+Elmton+Rd,+Creswell+S80+4ES",
+      "notes": "Open limited hours, dog‑friendly, online + in-store service."
+    },
+    {
+      "name": "Reptilia Exotic Animal Rescue",
+      "town": "Ossett",
+      "postcode": "WF5 9BL",
+      "rating": 4.5,
+      "website": "https://www.reptiliaexoticanimalrescues.com",
+      "phone": "+44 1924 694461",
+      "lat": 53.6815,
+      "lon": -1.5150,
+      "region": "West Yorkshire",
+      "map": "https://www.google.com/maps/search/7+Towngate,+Ossett+WF5+9BL",
+      "notes": "Rescue & rehoming centre, boarding, workshops, licensed exotic shop."
+    }
+
 ]
