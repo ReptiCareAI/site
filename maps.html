@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reptile Shop Map - ReptiCareAI</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([53.5, -1.5], 6); // Centre UK
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const shops = [
+      {
+        name: "The Lizard Lounge",
+        lat: 53.4010,
+        lon: -1.5052,
+        town: "Sheffield"
+      },
+      {
+        name: "Mansfield Aquatic, Reptile & Pet Centre",
+        lat: 53.1440,
+        lon: -1.1970,
+        town: "Mansfield"
+      },
+      {
+        name: "Birmingham Reptiles & Pets",
+        lat: 52.5417,
+        lon: -1.8220,
+        town: "Birmingham"
+      },
+      {
+        name: "Snakes 'n' Adders",
+        lat: 53.3614,
+        lon: -1.4412,
+        town: "Sheffield"
+      },
+      {
+        name: "Primitive Pets",
+        lat: 53.6840,
+        lon: -1.5470,
+        town: "Ossett"
+      },
+      {
+        name: "Urban Exotics",
+        lat: 53.1217,
+        lon: -1.2883,
+        town: "Kirkby-in-Ashfield"
+      },
+      {
+        name: "Lincoln Reptiles Ltd",
+        lat: 53.2310,
+        lon: -0.5360,
+        town: "Lincoln"
+      },
+      {
+        name: "Dragon Aquatics",
+        lat: 55.8470,
+        lon: -4.4234,
+        town: "Paisley"
+      },
+      {
+        name: "Proexotics",
+        lat: 55.8460,
+        lon: -4.4240,
+        town: "Paisley"
+      },
+      {
+        name: "Partick Aquatics & Reptiles",
+        lat: 55.8700,
+        lon: -4.2970,
+        town: "Glasgow"
+      },
+      {
+        name: "The Reptile Hoose",
+        lat: 56.1220,
+        lon: -3.4070,
+        town: "Cowdenbeath"
+      },
+      {
+        name: "World of Exotics",
+        lat: 53.3420,
+        lon: -2.9950,
+        town: "Bromborough"
+      },
+      {
+        name: "Clubmoor Pets & Reptiles",
+        lat: 53.4100,
+        lon: -2.8800,
+        town: "Liverpool"
+      },
+      {
+        name: "Tropical Exotics",
+        lat: 53.2365,
+        lon: -3.4284,
+        town: "Rhuddlan"
+      }
+    ];
+
+    shops.forEach(shop => {
+      L.marker([shop.lat, shop.lon])
+        .addTo(map)
+        .bindPopup(`<strong>${shop.name}</strong><br>${shop.town}`);
+    });
+  </script>
+</body>
+</html>
+

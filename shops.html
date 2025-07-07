@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Find a Reptile Shop - ReptiCareAI</title>
+  
+  <!-- Styles -->
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -49,16 +51,25 @@
     .shop a:hover {
       text-decoration: underline;
     }
+    #shop-map {
+      height: 400px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
   </style>
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HYZ7G76ZWS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-HYZ7G76ZWS');
-</script>
+
+  <!-- Leaflet Map Styles -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYZ7G76ZWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HYZ7G76ZWS');
+  </script>
 </head>
 <body>
   <h1>🔍 Find a Reptile Shop</h1>
@@ -79,95 +90,112 @@
     <option value="Other">Other</option>
   </select>
 
+  <div id="shop-map"></div>
   <div id="results"><p>Loading shops...</p></div>
 
-<script>
-  let shops = [];
+  <script>
+    let shops = [];
 
-  async function loadShops() {
-    try {
-      const response = await fetch('shops.json');
-      shops = await response.json();
-      filterShops(); // initial load
-    } catch (err) {
-      document.getElementById('results').innerHTML = '<p style="color:red;">Failed to load shops.</p>';
-      console.error(err);
-    }
-  }
-
-  async function filterShops() {
-    const query = document.getElementById('searchBox').value.trim().toUpperCase();
-    const region = document.getElementById('regionFilter').value;
-
-    const resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = '<p>Loading results...</p>';
-
-    // If it's a full UK postcode, use radius search
-    if (/^[A-Z]{1,2}\d{1,2}[A-Z]?\d[A-Z]{2}$/.test(query.replace(/\s+/g, ''))) {
+    async function loadShops() {
       try {
-        const res = await fetch(`https://api.postcodes.io/postcodes/${query}`);
-        const data = await res.json();
-        if (data.status === 200) {
-          const userLat = data.result.latitude;
-          const userLon = data.result.longitude;
-
-          const filtered = shops.filter(shop => {
-            if (!shop.lat || !shop.lon) return false;
-            const distance = getDistanceMiles(userLat, userLon, shop.lat, shop.lon);
-            return distance <= 25;
-          });
-
-          displayResults(filtered);
-          return;
-        }
+        const response = await fetch('shops.json');
+        shops = await response.json();
+        filterShops(); // initial load
       } catch (err) {
-        console.error('Postcode lookup failed:', err);
+        document.getElementById('results').innerHTML = '<p style="color:red;">Failed to load shops.</p>';
+        console.error(err);
       }
     }
 
-    // Fallback to normal region/town search
-    const filtered = shops.filter(shop => {
-      const matchRegion = !region || shop.region === region;
-      const matchSearch =
-        !query ||
-        shop.town.toLowerCase().includes(query.toLowerCase()) ||
-        shop.postcode.replace(/\s+/g, '').toLowerCase().includes(query.toLowerCase().replace(/\s+/g, ''));
-      return matchRegion && matchSearch;
-    });
+    async function filterShops() {
+      const query = document.getElementById('searchBox').value.trim().toUpperCase();
+      const region = document.getElementById('regionFilter').value;
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = '<p>Loading results...</p>';
 
-    displayResults(filtered);
-  }
+      if (/^[A-Z]{1,2}\d{1,2}[A-Z]?\d[A-Z]{2}$/.test(query.replace(/\s+/g, ''))) {
+        try {
+          const res = await fetch(`https://api.postcodes.io/postcodes/${query}`);
+          const data = await res.json();
+          if (data.status === 200) {
+            const userLat = data.result.latitude;
+            const userLon = data.result.longitude;
 
-  function displayResults(filtered) {
-    const resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = filtered.map(shop => `
-      <div class="shop">
-        <h3>${shop.name}</h3>
-        <p>${shop.town} (${shop.postcode})<br>
-        Rating: ${shop.rating} ⭐<br>
-        ${shop.website ? `<a href="${shop.website}" target="_blank">Visit Website</a> | ` : ''}
-        <a href="${shop.map}" target="_blank">View on Map</a></p>
-      </div>
-    `).join('') || '<p>No shops found.</p>';
-  }
+            const filtered = shops.filter(shop => {
+              if (!shop.lat || !shop.lon) return false;
+              const distance = getDistanceMiles(userLat, userLon, shop.lat, shop.lon);
+              return distance <= 25;
+            });
 
-  function getDistanceMiles(lat1, lon1, lat2, lon2) {
-    const R = 3958.8; // radius of Earth in miles
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = Math.sin(dLat/2) ** 2 +
-              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-              Math.sin(dLon/2) ** 2;
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    return R * c;
-  }
+            displayResults(filtered);
+            return;
+          }
+        } catch (err) {
+          console.error('Postcode lookup failed:', err);
+        }
+      }
 
-  document.getElementById('searchBox').addEventListener('input', filterShops);
-  document.getElementById('regionFilter').addEventListener('change', filterShops);
+      const filtered = shops.filter(shop => {
+        const matchRegion = !region || shop.region === region;
+        const matchSearch =
+          !query ||
+          shop.town.toLowerCase().includes(query.toLowerCase()) ||
+          shop.postcode.replace(/\s+/g, '').toLowerCase().includes(query.toLowerCase().replace(/\s+/g, ''));
+        return matchRegion && matchSearch;
+      });
 
-  loadShops();
-</script>
+      displayResults(filtered);
+    }
 
+    function displayResults(filtered) {
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = filtered.map(shop => `
+        <div class="shop">
+          <h3>${shop.name}</h3>
+          <p>${shop.town} (${shop.postcode})<br>
+          Rating: ${shop.rating} ⭐<br>
+          ${shop.website ? `<a href="${shop.website}" target="_blank">Visit Website</a> | ` : ''}
+          <a href="${shop.map}" target="_blank">View on Map</a></p>
+        </div>
+      `).join('') || '<p>No shops found.</p>';
 
+      renderMapMarkers(filtered);
+    }
+
+    function getDistanceMiles(lat1, lon1, lat2, lon2) {
+      const R = 3958.8;
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLon = (lon2 - lon1) * Math.PI / 180;
+      const a = Math.sin(dLat/2) ** 2 +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon/2) ** 2;
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      return R * c;
+    }
+
+    function renderMapMarkers(filteredShops) {
+      if (!window.shopMap) {
+        window.shopMap = L.map('shop-map').setView([53.5, -1.5], 6);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(window.shopMap);
+      }
+
+      if (window.shopMarkers) {
+        window.shopMarkers.forEach(m => window.shopMap.removeLayer(m));
+      }
+
+      window.shopMarkers = filteredShops.map(shop => {
+        return L.marker([shop.lat, shop.lon])
+          .addTo(window.shopMap)
+          .bindPopup(`<strong>${shop.name}</strong><br>${shop.town}`);
+      });
+    }
+
+    document.getElementById('searchBox').addEventListener('input', filterShops);
+    document.getElementById('regionFilter').addEventListener('change', filterShops);
+
+    loadShops();
+  </script>
 </body>
 </html>
